@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Space+Mono&display=swap');
+
+.weather-card {
+    background: linear-gradient(90deg, rgba(195,174,238,1) 0%, rgba(87,129,158,1) 100%);
+}
+
+.weather-info {
+    font-size: 3rem;
+    font-family: 'Bree Serif', serif;
+    color: #FFF;
+}

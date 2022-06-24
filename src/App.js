@@ -1,23 +1,30 @@
-import logo from './logo.svg';
+import { useState, useEffect } from 'react';
 import './App.css';
+import WeatherCard from './Components/WeatherCard/WeatherCard';
 
-function App() {
+const App = () => {
+
+  const [weather, setWeather] = useState(null);
+  
+
+  useEffect(() => {
+    fetch(`http://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_WEATHER_KEY}&q=Lima`)
+    .then(response => response.json())
+    .then(data => setWeather(data))
+  }, []);
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {console.log(weather.current)}
+      {weather && (
+        <WeatherCard 
+          img = {weather.current?.condition?.icon}
+          location = {weather.location?.name}
+          temp = {weather.current?.feelslike_f}
+          condition = {weather.current.condition.text.toLowerCase()}
+        />
+      )}
     </div>
   );
 }
