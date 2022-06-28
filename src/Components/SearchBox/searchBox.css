@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Space+Mono&display=swap');
+
+
+.search-box {
+    font-weight: 700;
+    margin: 1em;
+    padding: 1em;
+}
+.search-label {
+    font-size: 1.5rem;
+    font-family: 'Bree Serif', serif;
+}
+.search-input, .search-button {
+    border: 2px solid steelblue;
+    padding: .5em;
+    font-family: 'Bree Serif', serif;
+    font-size: 1.1rem;
+    border-radius: 3px;
+}
+.search-input {
+    margin-top: 1em;
+}
+.search-button {
+    font-weight: 700;
+    margin-left: 1em;
+    cursor: pointer;
+}
+
+@media (max-width: 425px) {
+    .search-button {
+        margin-top: 1rem;
+    }
+}
