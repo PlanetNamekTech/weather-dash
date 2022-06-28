@@ -7,19 +7,22 @@ const App = () => {
 
   const [weather, setWeather] = useState(null);
   const [ searchQuery, setSearchQuery ] = useState("London");
+
+  const searchWeather = (city) => {
+    fetch(`http://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_WEATHER_KEY}&q=${city}`)
+    .then(response => response.json())
+    .then(data => setWeather(data))
+  }
   
 
   useEffect(() => {
-    fetch(`http://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_WEATHER_KEY}&q=${searchQuery}`)
-    .then(response => response.json())
-    .then(data => setWeather(data))
+    searchWeather('London')
   }, []);
 
 
   return (
     <div className="App">
-      {console.log(weather.current)}
-      <SearchBox search={searchQuery}/>
+      <SearchBox search={searchQuery} searchWeather={searchWeather} setSearchQuery={setSearchQuery} />
       {weather && ( // Conditional Rendering
         <WeatherCard 
           img = {weather.current?.condition?.icon}
