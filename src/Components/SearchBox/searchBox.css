@@ -20,6 +20,9 @@
 .search-input {
     margin-top: 1em;
 }
+.search-input::placeholder {
+    color: gray;
+}
 .search-button {
     font-weight: 700;
     margin-left: 1em;

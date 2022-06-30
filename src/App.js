@@ -25,10 +25,12 @@ const App = () => {
       <SearchBox search={searchQuery} searchWeather={searchWeather} setSearchQuery={setSearchQuery} />
       {weather && ( // Conditional Rendering
         <WeatherCard 
-          img = {weather.current?.condition?.icon}
-          location = {weather.location?.name}
-          temp = {weather.current?.feelslike_f}
-          condition = {weather.current.condition.text.toLowerCase()}
+        weather = {weather}
+        // Below way might have been cleaner, not sure, this moves most code to the WeatherCard
+          // img = {weather.current?.condition?.icon}
+          // location = {weather.location?.name}
+          // temp = {weather.current?.feelslike_f}
+          // condition = {weather.current.condition.text.toLowerCase()}
         />
       )}
     </div>

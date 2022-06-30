@@ -10,9 +10,13 @@ const SearchBox = ({search, searchWeather, setSearchQuery}) => {
             className='search-input'
             type="text"
             id="location-input"
-            placeholder="London" 
+            placeholder="Search City" 
             value={search}
-            onChange={(e) => setSearchQuery(e.target.value)} />
+            onChange={(e) => setSearchQuery(e.target.value)}
+            onKeyUp={(e) => {if(e.key==="Enter") {
+               searchWeather(search)
+            }}}
+            />
             <button
             className="search-button"
             onClick={() => searchWeather(search)}
